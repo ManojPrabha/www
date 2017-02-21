@@ -1,0 +1,130 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+
+
+    $('#toilet_submit').click(function () {
+        var toilet_id= $('#toilet_id').val();
+        var employee_id= $('#id_key').val();
+        var location= $('#loc').val();
+
+        var message_toilet =$('#message_toilet');
+        var alert_message_toilet=$('#alert_message_toilet')
+        message_toilet.css('display','block');
+        $.ajax({
+            type: "POST",
+            url: "/save",
+            data: {
+                toilet_id: toilet_id,
+                employee_id: employee_id,
+                location: location
+
+
+            },success:function (response) {
+                alert_message_toilet.css('display','none');
+                message_toilet.css('display','block');
+
+                message_toilet.find('span').html("Done!..");
+            },error:function (response) {
+                console.log(response);
+                var message=response.responseJSON['Message'];
+
+                message_toilet.css('display','none');
+                alert_message_toilet.css('display','block');
+                alert_message_toilet.find('span').html(message);
+
+            },complete:function () {
+
+            }
+        })
+    })
+
+    $('#admin_submit').click(function () {
+        var UserName= $('#uname').val();
+        var AdminEmployee_id= $('#adempid').val();
+        var AdminPhone= $('#adph').val();
+        var AdminEmail= $('#email').val();
+        var AdminPassword= $('#passw').val();
+
+        console.log(UserName);
+        console.log(AdminEmployee_id);
+        console.log(AdminPhone);
+        console.log(AdminEmail);
+        console.log(AdminPassword);
+
+        var message_admin =$('#message_admin');
+        var alert_message_admin=$('#alert_message_admin');
+        message_admin.css('display','block');
+        $.ajax({
+            type: "POST",
+            url: "/saveadmin",
+            data: {
+                UserName: UserName,
+                AdminEmployee_id: AdminEmployee_id,
+                AdminPhone: AdminPhone,
+                AdminEmail:AdminEmail,
+                AdminPassword:AdminPassword
+
+            },success:function (response) {
+                $('#formadmin').html(response['html']);
+
+                alert_message_admin.css('display','none');
+                message_admin.css('display','block');
+
+                message_admin.find('span').html("Done! Confirmation email is successfully sent to your Email-ID..");
+            },error:function (response) {
+                var message=response.responseJSON['Message'];
+
+                message_admin.css('display','none');
+                alert_message_admin.css('display','block');
+                alert_message_admin.find('span').html(message);
+
+            },complete:function (response) {
+
+            }
+        })
+
+    })
+
+    $('#staff_submit').click(function () {
+        var EmployeeName= $('#Empname').val();
+        var Employee_id= $('#Empid').val();
+        var EmployeePhone= $('#Empphone').val();
+        var EmployeeLocation= $('#locstaff').val();
+
+
+
+        var message_staff =$('#message_staff');
+        var alert_message_staff=$('#alert_message_staff');
+        message_staff.css('display','block');
+        $.ajax({
+            type: "POST",
+            url: "/savestaff",
+            data: {
+                EmployeeName: EmployeeName,
+                Employee_id: Employee_id,
+                EmployeePhone: EmployeePhone,
+                EmployeeLocation:EmployeeLocation,
+
+            },success:function (response) {
+                $('#formstaff').html(response['html']);
+
+                alert_message_staff.css('display','none');
+                message_staff.css('display','block');
+
+                message_staff.find('span').html("Done! Staff Details Successfully saved!!..");
+            },error:function (response) {
+                var message=response.responseJSON['Message'];
+
+                message_staff.css('display','none');
+                alert_message_staff.css('display','block');
+                alert_message_staff.find('span').html(message);
+
+            },complete:function (response) {
+
+            }
+        })
+
+    })
+
+</script>

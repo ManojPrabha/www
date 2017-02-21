@@ -1,0 +1,10 @@
+body {
+  background-color: #000000;
+}
+
+#wrapper.sidenav{
+    float:left;
+}
+#wrapper.maincontent{
+    float: right;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="/static/css/myedit.css">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/dist/css/sb-admin-2.min.css">
+
+    <link rel="stylesheet" href="../static/vendor/metisMenu/metisMenu.css">
+
+    <style>
+        body{
+            padding-top: 11px;
+        }
+    </style>
+</head>
+
+
+<body>
+{% include "/home/home.html"  %}
+
+{% include "/comments/navbar.html"  %}
+{% include "/comments/modal.html"  %}
+{% include "/comments/dashboard.html"  %}
+{% include "/comments/addtoilets.html"  %}
+{% include "/comments/register.js.html"  %}
+{%block content%}
+{% endblock %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="static/dist/js/sb-admin-2.js"></script>
+<script type="text/javascript" src="static/dist/js/sb-admin-2.min.js"></script>
+
+<script type="text/javascript" src="static/vendor/metisMenu/metisMenu.js"></script>
+<script type="text/javascript" src="static/vendor/bootstrap/js/new.js"></script>
+<script type="text/javascript" src="static/vendor/metisMenu/metisMenu.min.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+
+<script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

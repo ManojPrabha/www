@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title>
+        login_page
+    </title>
+
+    <link rel="stylesheet" href="../static/css/myedit.css">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/loginpage.css">
+    <style>
+        .button {
+            left:50%;
+            top:50%;
+            padding: 15px 25px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:hover {background-color: #3e8e41}
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        .vertical-align{
+            align-items: center;
+            position: relative;
+            padding-top: 300px;
+            padding-left: 600px;
+        }
+        body {
+            background-image: url("../static/img/bg.jpg");
+
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<script src="../static/js/loginjs.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<!-------------------------------------------------------------->
+<div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form" action="/login" method="post">
+            <input type="text" name="useremail" placeholder="Email"/>
+            <input type="password" name="userpassword" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+
+    <div id="ajax-errors" class="alert alert-danger" role="alert" style="display: none;">
+        <p><strong> No!!!</strong></p>
+        Something went Wrong!!!!
+    </div>
+</div>
+<!-------------------------------------------------------------->
+<div class="vertical-align">
+    <button class="button" data-toggle="modal" data-target="#myModal">Log in</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">LOGIN</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <label class="col-lg-4 control-label" for="user_id">Email</label>
+                    <div class="col-lg-6">
+                        <input type="email" class="form-control" id="user_id">
+                    </div>
+                    <br></br>
+                    <label class="col-lg-4 control-label" for="psw">Password</label>
+                    <div class="col-lg-6">
+                        <input type="password" class="form-control" id="psw">
+                    </div>
+
+
+                </form> <br></br>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <form action="/new" method="get">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
